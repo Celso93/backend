@@ -13,7 +13,8 @@ https://www.youtube.com/watch?v=xiUTqnI6xk8
 rede:
 https://www.youtube.com/watch?v=5WfiTHiU4x8&list=PLIhvC56v63IKrRHh3gvZZBAGvsvOhwrRF 
 
-lembrete: parei em 3:44:00 (lista) do video
+Funcoes:
+https://www.youtube.com/watch?v=0yXPQZvlgrk
 
 comando legais:
 python -i arquivo.py (carrega tudo que esta no scrip)

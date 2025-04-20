@@ -1,0 +1,176 @@
+# Subprogramas em Python
+
+Este documento organiza as anotações sobre subprogramas (funções e procedimentos) em Python, com base no conteúdo do vídeo e nos conceitos apresentados.
+
+## 1. O que são Subprogramas?
+
+Subprogramas, frequentemente chamados de **rotinas**, são blocos de código encapsulados e reutilizáveis que realizam uma tarefa específica.
+
+* **Abstração de Processo:** Representam uma sequência de passos lógicos.
+* **Encapsulamento:** Sua lógica interna é isolada.
+* **Reutilização:** Podem ser chamados múltiplas vezes pelo nome.
+* **Parametrizáveis:** Podem receber dados de entrada (argumentos).
+
+A capacidade de chamar um subprograma pelo nome, passando argumentos, define o que é "callable" em Python.
+
+### Estrutura Básica de um Subprograma
+
+Um subprograma é composto por:
+
+* **Cabeçalho:** Define a interface (nome, parâmetros, anotações de tipo).
+* **Corpo:** Contém a lógica do processo (bloco de código).
+* **Docstring (Opcional):** Documentação que explica o propósito, parâmetros e retorno.
+
+## 2. Tipos de Subprogramas
+
+Existem duas categorias principais, baseadas em seu comportamento de retorno:
+
+* **Procedimentos (Procedures):**
+    * Não retornam valores explicitamente (na prática, retornam `None` em Python).
+    * O foco não está no valor de retorno, mas na ação que executam.
+* **Funções (Functions):**
+    * **Retornam valores.**
+    * Seu objetivo principal é transformar dados de entrada em uma saída (o valor de retorno).
+    * Baseiam-se nos argumentos recebidos para produzir a saída.
+
+## 3. Parâmetros vs. Argumentos
+
+* **Parâmetro:** A variável declarada na definição da função (no cabeçalho) que define o tipo de dado esperado. É a *definição* ou *requisito*.
+    * Exemplo: `def minha_funcao(parametro1, parametro2):`
+* **Argumento:** O valor real que é passado para o parâmetro quando a função é chamada. É o *valor concreto*.
+    * Exemplo: `minha_funcao(argumento1, argumento2)`
+
+## 4. Funções Puras e Efeitos Colaterais
+
+* **Função Pura:**
+    * Não gera **efeitos colaterais (side effects)**.
+    * O resultado depende **apenas** dos argumentos de entrada.
+    * Não altera variáveis fora de seu escopo local ou o estado global do programa.
+    * Exemplo:
+        ```python
+        def soma(x, y):
+            return x + y
+        ```
+* **Função com Efeito Colateral:**
+    * Modifica algo fora de seu escopo local (ex: uma variável global, escreve em um arquivo, imprime na tela, modifica um objeto mutável passado como argumento).
+    * Considerado uma "má prática" em muitos contextos, pois torna a função menos previsível e difícil de testar.
+
+## 5. Definição de Funções em Python
+
+* **`def`:** Usado para definir funções nomeadas.
+    ```python
+    def nome_da_funcao(parametros):
+        """Docstring"""
+        # Corpo da função
+        pass # Exemplo
+    ```
+* **`lambda`:** Usado para criar funções anônimas (sem nome) de uma única expressão. São úteis para tarefas simples ou como argumentos para outras funções.
+    ```python
+    # Definição
+    lambda x: x + 1
+
+    # Uso imediato
+    (lambda x: x + 1)(2) # Retorna 3
+
+    # Atribuindo a uma variável (prática desencorajada pela PEP 8)
+    soma1 = lambda x: x + 1
+    soma1(10) # Retorna 11
+    ```
+
+## 6. Cabeçalho da Função e Interface
+
+O cabeçalho (`def nome(parametros):`) define como outras partes do programa interagirão com o subprograma. Inclui:
+
+* **Nome:** Identificador do subprograma.
+    * Regras: Não iniciar com número/caractere especial.
+    * Convenção (PEP 8): Letras minúsculas, separadas por `_` (snake_case).
+* **Argumentos (Parâmetros):** Os dados que a função espera receber.
+    * Convenção (PEP 8): Letras minúsculas, separadas por `_` (snake_case).
+* **Anotações de Tipo (Opcional):** Indica os tipos esperados para parâmetros e retorno.
+* **Definição de Tipo Genérico (Opcional):** Para funções que operam em tipos diversos (introduzido no Python 3.12).
+
+### Tipos de Parâmetros em Python
+
+Python suporta diferentes formas de passar argumentos:
+
+* **Posicionais:** Os argumentos são associados aos parâmetros pela ordem em que aparecem.
+    ```python
+    def exemplo(x, y): # x é o primeiro, y é o segundo
+        pass
+    exemplo(10, 20) # 10 vai para x, 20 vai para y
+    ```
+* **Nomeados (Keyword Arguments):** Os argumentos são associados aos parâmetros usando `chave=valor`, independente da ordem.
+    ```python
+    def exemplo(x, y):
+        pass
+    exemplo(y=20, x=10) # A ordem não importa
+    ```
+* **Híbridos:** Python permite misturar argumentos posicionais e nomeados. No entanto, uma vez que você começa a usar argumentos nomeados, todos os argumentos subsequentes na chamada também devem ser nomeados.
+    ```python
+    def exemplo(a, b, c):
+        pass
+    exemplo(1, b=2, c=3) # Válido
+    # exemplo(1, b=2, 3) # Inválido após usar nomeado 'b'
+    ```
+
+### Restrições de Parâmetros Especiais
+
+* `/`: Indica que todos os parâmetros **antes** da barra devem ser **posicionais-only**.
+    ```python
+    def exemplo(posicional_apenas, / , padrao):
+        pass
+    exemplo(1, padrao=2) # Válido
+    # exemplo(posicional_apenas=1, padrao=2) # Inválido - posicional_apenas só aceita posição
+    ```
+* `*`: Indica que todos os parâmetros **após** o asterisco devem ser **keyword-only (nomeados)**.
+    ```python
+    def exemplo(padrao, *, nomeado_apenas):
+        pass
+    exemplo(1, nomeado_apenas=2) # Válido
+    # exemplo(1, 2) # Inválido - nomeado_apenas só aceita nome
+    ```
+
+### Empacotamento e Desempacotamento de Parâmetros
+
+* `*args` (ou `*qualquer_nome`): **Empacota** argumentos posicionais arbitrários em uma **tupla**. Útil quando você não sabe quantos argumentos posicionais a função receberá.
+    ```python
+    def exemplo(*argumentos):
+        print(argumentos) # argumentos será uma tupla
+    exemplo(1, 2, 3) # Saída: (1, 2, 3)
+    ```
+* `**kwargs` (ou `**qualquer_nome`): **Empacota** argumentos nomeados arbitrários em um **dicionário**. Útil quando você não sabe quais argumentos nomeados (e quantos) a função receberá.
+    ```python
+    def exemplo(nome, telefone, **dados_extras):
+         print(f'{nome}, meu telefone é: {telefone}')
+         print(dados_extras) # dados_extras será um dicionário
+    exemplo('Ana', '1234-5678', endereco='Rua X', cidade='Y')
+    # Saída: Ana, meu telefone é: 1234-5678
+    # Saída: {'endereco': 'Rua X', 'cidade': 'Y'}
+    ```
+    *Nota:* `**kwargs` também pode ser usado para **desempacotar** um dicionário ao chamar uma função.
+
+## 7. Funções de Ordem Superior (High-Order Functions)
+
+Funções que podem receber outras funções como argumentos ou retornar funções. Funções `lambda` são frequentemente usadas neste contexto.
+
+## 8. Anotações de Tipo (Type Hints)
+
+* Sintaxe: `nome_parametro: Tipo` (para parâmetros) e `-> Tipo` (para retorno).
+* Introduzidas no Python 3.5.
+* **Opcionais.**
+* O interpretador Python **não** as valida em tempo de execução.
+* Principal uso: Para ferramentas externas (linters, type checkers como MyPy) verificarem a consistência de tipos e para documentação, melhorando a legibilidade e manutenibilidade do código.
+    ```python
+    def exemplo(valor: float, taxa: float, parcelas: int) -> float:
+        """Calcula algo."""
+        # Lógica aqui
+        pass
+    ```
+
+### Variáveis de Tipos Genéricos (`TypeVar`)
+
+* Permitem definir que um parâmetro e o retorno de uma função (ou múltiplos parâmetros) devem ter o mesmo tipo, sem especificar qual tipo concreto é.
+* Introduzido em versões anteriores, mas a sintaxe `def soma[T](x: T, y:T) -> T:` foi introduzida no Python 3.12.
+* Pesquisar mais sobre `typing.TypeVar` para uso em versões anteriores.
+
+---
