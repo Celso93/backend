@@ -31,9 +31,8 @@ verificar se existe letra maiuscula ou minuscula
 
 '''
 
-# entrada = "Olá mundo!"
-entrada = "Zelda"
-chave = 2
+entrada = "Olá mundo!"
+chave = 3
 alfabeto_minusculo = "abcdefghijklmnopqrstuvwxyz"
 alfabeto_maiusculo = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 resultado = []
@@ -41,14 +40,15 @@ resultado = []
 for letra in entrada:
     position = 0
     if letra in alfabeto_minusculo:
-        position = alfabeto_minusculo.index(letra) + chave
-        resultado += alfabeto_minusculo[position]
+        posicao_inicial = alfabeto_minusculo.index(letra)
+        nova_posicao = (posicao_inicial + chave) % 26
+        resultado.append(alfabeto_minusculo[nova_posicao])
     elif letra in alfabeto_maiusculo:
-        position = alfabeto_maiusculo.index(letra) + chave
-        resultado += alfabeto_maiusculo[position]
+        posicao_inicial = alfabeto_maiusculo.index(letra)
+        nova_posicao = (posicao_inicial + chave) % 26
+        resultado.append(alfabeto_maiusculo[nova_posicao])
     else:
-        resultado += letra
+        resultado.append(letra)
 
 resultado = "".join(resultado)
-
 print(resultado)
