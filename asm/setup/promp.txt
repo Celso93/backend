@@ -1,0 +1,66 @@
+Windows: MS-DOS, linguagem CMD, linguagem PowerShell
+Mac e Linux: Sistema UNIX, linguagem BASH
+
+Função principal de um terminal:
+Permitir a comunicação direta entre o usuário e o sistema operacional.
+
+Comandos Windows:
+explorer .
+dir = ls do Linux
+cd = change directory (pasta ou ..)
+Variáveis de ambiente:
+Path: pastas em que o sistema operacional procura os programas.
+Variáveis de ambiente no Windows:
+Variáveis de Ambiente > Variáveis do Sistema > Path
+where python: caminho do Python instalado no Windows.
+
+macOS:
+Exibindo variáveis:
+    echo $PATH
+
+pip install ipython
+    python interpretador colorido
+    ipython para abrir
+    dentro do ipython:
+        %run nomedoscript.py (executa o script e carrega as variaveis)
+
+jupyter:
+    pip install jupyter
+    funciona como servidor e no navegador, expoe para a rede.
+    notebook
+
+[Ambiente virtual]
+
+Qual comando lista os pacotes instalados no ambiente (global ou virtual)?
+
+Qual comando gera o arquivo requirements.txt com as dependências do projeto?
+pip freeze > requirements.txt
+ativar o ambiente virtual no Windows: venv-projeto-A\Scripts\activate
+
+[Estruturando projeto]
+__name__ 'e uma variavel
+
+muito usado para verificar um script sem carregar ele em outro arquivo
+if __name__ = '__main__':
+    print(x)
+
+######################################################################################################################################
+# Estrutura do projeto e erros de importação
+# Importação de vários arquivos do python
+# main.py : arquivo de inicialização
+
+# Solução:
+# migrar tudo pro ambiente virtual (venv)
+# 1. __init__.py : informa ao python que esses arquivos devem ser instalado no ambiente virutal. Colocar dentro das pastas.
+
+# 2. pip install setuptools (instalar dentro do venv)
+# 3. Criar o arquivo setup.py na raiz do projeto
+from setuptools import setups, find_packages()
+
+setup(
+  name="MyProject",
+  packages=find_packages(),
+)
+
+# pip install -e .
+# -e = editavel (pra evitar a reisntalacao do projeto a cada atualização do arquivo)
