@@ -1,7 +1,7 @@
-# Git
+# [Git]
 # https://learnxinyminutes.com/git/
 
-# É um software que..
+# É um software que :
 # Controle e monitora a versao do código
 # Ponto de salvamento = commit
 # Histórico do que foi feito/ Linha do tempo
@@ -14,4 +14,5 @@
 # Verificar se tem MIT, GPL ou APACHE: clone, modifique, e use em outros projetos
 # Sem licensa = vc tem que perguntar se pode usar o código
 
+# merge : juntar duas branch, mantendo o historico de cada branch
 # fork = copia do projeto
