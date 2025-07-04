@@ -1,0 +1,17 @@
+# Git
+# https://learnxinyminutes.com/git/
+
+# É um software que..
+# Controle e monitora a versao do código
+# Ponto de salvamento = commit
+# Histórico do que foi feito/ Linha do tempo
+# Github: plataforma em nuvem para armazenar o código (repositorio remoto) e rede social.
+
+# Projetos prontos do github
+# Pontos importantes : licensa de código
+# Nem todo Repositorio publico é aberto
+# View license
+# Verificar se tem MIT, GPL ou APACHE: clone, modifique, e use em outros projetos
+# Sem licensa = vc tem que perguntar se pode usar o código
+
+# fork = copia do projeto
