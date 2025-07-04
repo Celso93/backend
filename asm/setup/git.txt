@@ -14,6 +14,10 @@ Github:
 - Sem licensa = vc tem que perguntar se pode usar o código
 - merge : juntar duas branch, mantendo o historico de cada branch
 - fork = copia do projeto
+- Pull Requests
 
 
-Link adicionais: https://learnxinyminutes.com/git/
+Link adicionais: 
+https://learnxinyminutes.com/git/
+https://markdownlivepreview.com/
+readme.so
