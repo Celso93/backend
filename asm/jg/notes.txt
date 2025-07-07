@@ -84,6 +84,12 @@ myproejct/asgi e myproejct/wsgi:
     Sao arquivos de configuracao gerais do servidor
     Permite rodar em servidores
 
+myproject/app
+    view: 
+
+myproject/urls.py
+    Rota: regras que determinam qual parte do codigo responde a aquela requisicao
+    criar um urls.py dentro do apps para criar a rota de varias outras view
 
 -----------------------------------------------------------------------------------------------------------------------
 Comandos usados durante o curso:
@@ -91,4 +97,4 @@ Comandos usados durante o curso:
     Em windows: \venv\Script\activate
     django-admin startproject myproject . (Start do rojeto)
     python manage.py runserver (inicializando o projeto)
-    python manage.py startapp myapps (cria um exemplo de app, fica no root do projeto)
+    python manage.py startapp myapps (cria um exemplo de app, fica no root do projeto. Vincular ao settings do projeto)
