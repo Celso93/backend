@@ -1,0 +1,32 @@
+Logica de programacao: Estudo da estrutura da linguagem das maquinas
+Lembrando que tudo que esta aqui e pra simplicar oque seria algoritmo
+
+Passar todos os passos bem claros
+Computadores sao literais e recebem intrucoes na forma de algoritmo
+
+Algoritmo passos finitos e organizados para realizar um fim.
+O Algoritmo precisa resolver um problema ! caso nao resolva ele nao e um algoritmo
+
+Algoritmo tem 3 elementos:
+- Entrada
+- Processamento
+- Saida
+
+---
+Variaveis e constante: Um espaço de memória reservado para armazenar um valor que pode mudar durante a execução do programa.
+Memoria ram: memoria de curto prazo
+Memoria em disco:
+
+Operadores
+    aritimeticos (+,-,/, outros)
+    comparacao (<>, ==, !=)
+    logicos (Bolean) [NOT, AND, OR]
+
+Estrutura de controle de fluxo
+    Se
+
+Estrutura de repeticao
+    Enquanto (verdadeiro)
+        Lembrar de alterar o estado para falso
+
+

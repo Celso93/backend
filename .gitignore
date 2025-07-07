@@ -1,0 +1,48 @@
+# ===================================================================
+# PILAR 1: SEGURANÇA
+# Arquivos de Segredos e Variáveis de Ambiente. NUNCA comitar!
+# ===================================================================
+.env
+.env.*
+!.env.example
+.aws/
+*.pem
+*.key
+
+# ===================================================================
+# PILAR 2: LIMPEZA
+# ===================================================================
+
+# Ambientes Virtuais
+/venv/
+/.venv/
+/env/
+/ENV/
+
+# Arquivos de Cache e Bytecode do Python
+__pycache__/
+*.py[cod]
+
+# Configurações de IDEs e Editores
+/.vscode/
+/.idea/
+*.sube-project
+*.sube-workspace
+
+# Bancos de Dados Locais
+*.sqlite3
+db.sqlite3
+
+# Arquivos de Log e Cache de Testes
+*.log
+.pytest_cache/
+.coverage
+
+# Arquivos de Build e Distribuição
+/build/
+/dist/
+*.egg-info/
+
+# Arquivos de Sistema Operacional
+.DS_Store
+Thumbs.db
