@@ -1,30 +1,28 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from datetime import datetime
+from .utils import time
 
-# Create your views here.
-# view 'e uma funcao python
-# toda view, em teoria, recebe uma request
+# View e uma funcao python
+# Toda view, em teoria, recebe uma request
 def home(request):
-    hora_atual = datetime.now().hour
+    dados = {
+        'exemplo1': 'Teste de dado dinamico',
+        'exemplo2': 'Exemplo2',
+        'saudacao': time.msg_saudacao(),
+    }
+    
+    # Renderizando html
+    return render(request, 'home.html', {
+        'saudacao': dados['saudacao'],  
+        'dado': dados['exemplo1'],
+        'outro_dado': dados['exemplo2']
+    })
 
-    if 0 >= hora_atual < 12:
-        # maneira de verificar valor entre valores
-        texto = 'Bom dia'
-    elif 12 >=  hora_atual < 18:
-        texto = 'Boa tarde'
-    else:
-        texto = 'Boa noite'
-
-    return HttpResponse(f'{texto} ! Ola mundo')
-    # criacada a view, configurar em urls
-
-# Exemplo de view com um parametro
+# View com um parametro
 def saudacao(request, nome):
     return HttpResponse(f'Ola {nome}, seja bem vindo')
 
-# varios parametros
-# exemplo requisicao no banco
+# Varios parametros (Exemplo requisicao no banco)
 def retorne_produto(request, id_produto):
     produtos = {
         1:"PC gamer",
@@ -35,3 +33,9 @@ def retorne_produto(request, id_produto):
     produto = produtos.get(id_produto, "Produtos nao encontrados")
 
     return HttpResponse(f'Detalhes do produto: {produto}')
+
+# exemplo de for
+def varios_mangas(request):
+    mangas = ["One piece", "Hunter x Hunter", "Demon Slayer"]
+
+    return render(request, 'mangas.html', {'mangas': mangas})

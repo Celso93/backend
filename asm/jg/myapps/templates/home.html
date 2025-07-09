@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+    <h2>{{saudacao}}!</h2>
+
+    {% if saudacao == 'Bom dia' %}
+        <p>Ja tomou seu cafe da manha?</p>
+    {% elif saudacao == 'Boa tarde' %}
+        <p>Nao coma muito a tarde beleza ?</p>
+    {% else %}
+        <p>Nao exagere na ultima refeicao</p>
+    {% endif %}
+
+    <p>Exemplo de dados dinamico: {{dado}}</p>
+    <p>Outro exemplo: {{outro_dado}}</p>
+{% endblock %}
